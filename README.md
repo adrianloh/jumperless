@@ -27,11 +27,11 @@ VCC-1, GND-8, -20, 20-40
 Here we're saying: connect VCC to rail 1, connect GND to rail 8, disconnect rail 20 (from its current net), and reconnect it to rail 40.
 
 ### 5. Series expansion:
-Let's say you have some sensor with 6 pins in a row, and each pin needs to go somewhere. You place the sensor's `pin 1` on rail 10.
+Let's say you have some sensor with 6 pins in a row, and each pin needs to go somewhere (except `pin 5`). You place the sensor's `pin 1` on rail 10.
 ```
 10++(GND, VCC, 33, 35, x, D10)
 ```
-Will create the following connections: `10-GND`, `11-VCC`, `12-33`, `13-35`, and `15-D10`. Use `x` to skip.
+Will create the following connections: `10-GND`, `11-VCC`, `12-33`, `13-35`, and `15-D10`. `x` skips the rail.
 
 # Other features
 

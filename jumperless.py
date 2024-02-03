@@ -52,14 +52,15 @@ def array_expression_to_netlist(array_list: str) -> [str]:
     match = RE_INCREMENT_EXPRESSION.match(array_list)
     start_pin = int(match.group(1))
     connections_to = [s.strip() for s in match.group(2).split(',')]
+    print(connections_to)
     if len(connections_to) == 0:
         return []
     for connect_to in connections_to:
-        if connect_to.strip() == "x":
-            continue
-        c = f"{start_pin}-{connect_to.strip()}"
-        connections.append(c)
+        if connect_to.strip() != "x":
+            c = f"{start_pin}-{connect_to.strip()}"
+            connections.append(c)
         start_pin += 1
+        
     return connections
 
 
